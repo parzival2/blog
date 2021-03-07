@@ -1,7 +1,7 @@
 ---
 author: "Kalyan"
 title: "Flashing bluepill using ST-Link board"
-date: "2021-03-05"
+date: "2021-03-07"
 description: "Flashing bluepill using ST-Link board"
 tags: ["st", "bluepill"]
 ShowToc: true
@@ -46,5 +46,5 @@ openocd: "\x30\x30\x30\x30\x30\x30\x30\x30\x30\x30\x30\x31"
 
  
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4NjgxNTEzNzRdfQ==
+eyJoaXN0b3J5IjpbLTcwNjIxNzEwNCwtMTg2ODE1MTM3NF19
 -->
