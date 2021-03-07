@@ -20,7 +20,13 @@ The bluepill connections are as follows from the top right
 | SDIO |
 | 3V3 |
 So you just have to connect them according to the name of the pin.
-
+```
+3V3			->			3V3
+SDIO		->			SDIO
+CLK			->			CLK
+GND			->			GND
+```
+After they are connected properly, the LED should start blinking. There is already a blinking program on all the boards
 
 
 
@@ -28,5 +34,5 @@ So you just have to connect them according to the name of the pin.
 
  
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwMDkyNDY3ODVdfQ==
+eyJoaXN0b3J5IjpbLTQyODI0OTU0M119
 -->
