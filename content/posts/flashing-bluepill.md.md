@@ -22,7 +22,7 @@ The bluepill connections are as follows from the top right
 So you just have to connect them according to the name of the pin.
 ```
 3V3			->			3V3
-SDIO		->			SDIO
+SDIO			->			SDIO
 CLK			->			CLK
 GND			->			GND
 ```
@@ -46,5 +46,5 @@ openocd: "\x30\x30\x30\x30\x30\x30\x30\x30\x30\x30\x30\x31"
 
  
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTE0NzM2MTM3MF19
+eyJoaXN0b3J5IjpbLTE4NjgxNTEzNzRdfQ==
 -->
