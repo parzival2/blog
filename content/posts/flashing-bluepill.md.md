@@ -26,7 +26,9 @@ SDIO		->			SDIO
 CLK			->			CLK
 GND			->			GND
 ```
-After they are connected properly, the LED should start blinking. There is already a blinking program on all the boards
+After they are connected properly, the LED should start blinking. There is already a blinking program on all the boards. 
+## Flashing
+For flashing you can use either OpenOCD or [stlink-utils](https://github.com/stlink-org/stlink). You can also check the flash size by using `st-info --probe¸ 
 
 
 
@@ -34,5 +36,5 @@ After they are connected properly, the LED should start blinking. There is alrea
 
  
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQyODI0OTU0M119
+eyJoaXN0b3J5IjpbLTg0MTkyOTg2M119
 -->
