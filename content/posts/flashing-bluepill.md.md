@@ -28,7 +28,17 @@ GND			->			GND
 ```
 After they are connected properly, the LED should start blinking. There is already a blinking program on all the boards. 
 ## Flashing
-For flashing you can use either OpenOCD or [stlink-utils](https://github.com/stlink-org/stlink). You can also check the flash size by using `st-info --probe¸ 
+For flashing you can use either OpenOCD or [stlink-utils](https://github.com/stlink-org/stlink). You can also check the flash size by using `st-info --probe`. I got an output like this after the connections are done properly.
+```
+Found 1 stlink programmers
+ serial: 303030303030303030303031
+openocd: "\x30\x30\x30\x30\x30\x30\x30\x30\x30\x30\x30\x31"
+  flash: 131072 (pagesize: 1024)
+   sram: 20480
+ chipid: 0x0410
+  descr: F1 Medium-density device
+```
+
 
 
 
@@ -36,5 +46,5 @@ For flashing you can use either OpenOCD or [stlink-utils](https://github.com/stl
 
  
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTg0MTkyOTg2M119
+eyJoaXN0b3J5IjpbMTE0NzM2MTM3MF19
 -->
