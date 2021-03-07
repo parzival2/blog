@@ -16,7 +16,11 @@ The bluepill connections are as follows from the top right
 | Pin |
 |--|
 | GND |
-| CLK
+| CLK |
+| SDIO |
+| 3V3 |
+So you just have to connect them according to the name of the pin.
+
 
 
 
@@ -24,5 +28,5 @@ The bluepill connections are as follows from the top right
 
  
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzU4NDQ3NTU0XX0=
+eyJoaXN0b3J5IjpbLTEwMDkyNDY3ODVdfQ==
 -->
