@@ -11,10 +11,18 @@ I want to get into programming [Blue-pill](https://stm32-base.org/boards/STM32F1
  I have ordered a cheap [ST-Link](https://www.st.com/en/development-tools/st-link-v2.html) that I have found online specifically [this](https://de.aliexpress.com/item/32676015777.html). The pinout for this one is
 <a data-flickr-embed="true" href="https://www.flickr.com/photos/192459396@N08/51012185817/in/dateposted-public/" title="StLink_Cheap_Pinout"><img src="https://live.staticflickr.com/65535/51012185817_297ab3b9a9_h.jpg" width="480" height="480" alt="StLink_Cheap_Pinout"></a><script async src="//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script>
 ## Bluepill
-The bluepill connections are as follows
+The bluepill connections are as follows from the top right
 ![Bluepill](https://stm32-base.org/assets/img/boards/STM32F103C8T6_Blue_Pill-2.jpg)
-fro
+| Pin |
+|--|
+| GND |
+| CLK
+
+
+
+
+
  
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDE0NjYwNzg1XX0=
+eyJoaXN0b3J5IjpbNzU4NDQ3NTU0XX0=
 -->
