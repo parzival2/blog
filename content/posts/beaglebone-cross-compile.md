@@ -64,6 +64,10 @@ sshfs debian@192.168.7.2:/ /home/kalyan/Beaglebone-Sysroot/ -o transform_symlink
 
 `/home/kalyan/Beaglebone-Sysroot/` path needs to be the folder that you have created and it will be used as a mount point where the root file system of beaglebone will be mounted.
 
+## Installing Cross-compiler
+
+I installed the cross-compiler using `sudo apt install crossbuild-essential-armhf` because the compiler that I downloaded from the GNU website doesn't has the correct `sysroot` setup and the builds were failing.
+
 ### CMake toolchain file
 
 This is the CMake toolchain file that I am using
