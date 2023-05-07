@@ -145,7 +145,7 @@ E.g. If you want to drive P9-12 pin on the `Beaglebone-Black` then you would set
 ```bash
 gpioset gpiochip1 28=1
 ```
-
+---
 ### CMAKE_SYSROOT and sshfs
 
 To cross-compile a C++ project, CMake needs to find the libraries in the target. The `CMAKE_SYSROOT` variable will be used to let the CMake know where the target system libraries are located in. 
@@ -156,14 +156,19 @@ cd ~
 mkdir Beaglebone-Sysroot
 sshfs debian@192.168.7.2:/ /home/kalyan/Beaglebone-Sysroot/ -o transform_symlinks
 ```
-
+{{< notice info >}}
+To unmount the mounted `sshfs` file system, you can use the command
+```bash
+fusermount -u /home/kalyan/Beaglebone-Sysroot
+```
+{{< /notice >}}
 `/home/kalyan/Beaglebone-Sysroot/` path needs to be the folder that you have created and it will be used as a mount point where the root file system of beaglebone will be mounted.
 
-## Installing Cross-compiler
+#### Installing Cross-compiler
 
 I installed the cross-compiler using `sudo apt install crossbuild-essential-armhf` because the compiler that I downloaded from the GNU website doesn't has the correct `sysroot` setup and the builds were failing.
 
-### CMake toolchain file
+#### CMake toolchain file
 
 This is the CMake toolchain file that I am using
 
@@ -186,4 +191,44 @@ set(CMAKE_FIND_ROOT_PATH_MODE_INCLUDE ONLY)
 ```
 
 The project can be found in [github](https://github.com/parzival2/ExploringBeaglebone).
+{{< notice info >}}
+Go to the next section if you were not able to run the compiled programs on **Beaglebone**.
+If you see an error like this
+```
+./ConstexprJoinArray: /lib/arm-linux-gnueabihf/libc.so.6: version `GLIBC_2.34' not found (required by ./ConstexprJoinArray)
+```
+{{< /notice >}}
 
+---
+### GLIBC version Mismatch
+What actually happened is version mismatch with *GLIBC*. This error can occur when you try to run a cross-compiled executable on a target system that has a different version of glibc than the one used for cross-compiling.
+Remember that we have downloaded the `cross-compiler` without checking the version of `gcc` that we have on **Beaglebone** using `sudo apt install crossbuild-essential-armhf`.
+If I check the version of compiler on the target
+##### Target
+```bash
+debian@BeagleBone:~/ExamplePrograms$ gcc -v
+Using built-in specs.
+COLLECT_GCC=gcc
+COLLECT_LTO_WRAPPER=/usr/lib/gcc/arm-linux-gnueabihf/10/lto-wrapper
+Target: arm-linux-gnueabihf
+Configured with: ../src/configure -v --with-pkgversion='Debian 10.2.1-6' --with-bugurl=file:///usr/share/doc/gcc-10/README.Bugs --enable-languages=c,ada,c++,go,d,fortran,objc,obj-c++,m2 --prefix=/usr --with-gcc-major-version-only --program-suffix=-10 --program-prefix=arm-linux-gnueabihf- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-bootstrap --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-libitm --disable-libquadmath --disable-libquadmath-support --enable-plugin --enable-default-pie --with-system-zlib --enable-libphobos-checking=release --with-target-system-zlib=auto --enable-objc-gc=auto --enable-multiarch --disable-sjlj-exceptions --with-arch=armv7-a --with-fpu=vfpv3-d16 --with-float=hard --with-mode=thumb --disable-werror --enable-checking=release --build=arm-linux-gnueabihf --host=arm-linux-gnueabihf --target=arm-linux-gnueabihf
+Thread model: posix
+Supported LTO compression algorithms: zlib zstd
+gcc version 10.2.1 20210110 (Debian 10.2.1-6)
+```
+and compare it to host then we can see that the host has a newer version of the compiler.
+##### Host
+```bash
+kalyan@DESKTOP-TT2VIL5:~/Beaglebone-Sysroot$ gcc -v
+Using built-in specs.
+COLLECT_GCC=gcc
+COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/11/lto-wrapper
+OFFLOAD_TARGET_NAMES=nvptx-none:amdgcn-amdhsa
+OFFLOAD_TARGET_DEFAULT=1
+Target: x86_64-linux-gnu
+Configured with: ../src/configure -v --with-pkgversion='Ubuntu 11.3.0-1ubuntu1~22.04' --with-bugurl=file:///usr/share/doc/gcc-11/README.Bugs --enable-languages=c,ada,c++,go,brig,d,fortran,objc,obj-c++,m2 --prefix=/usr --with-gcc-major-version-only --program-suffix=-11 --program-prefix=x86_64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-bootstrap --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-vtable-verify --enable-plugin --enable-default-pie --with-system-zlib --enable-libphobos-checking=release --with-target-system-zlib=auto --enable-objc-gc=auto --enable-multiarch --disable-werror --enable-cet --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32,m64,mx32 --enable-multilib --with-tune=generic --enable-offload-targets=nvptx-none=/build/gcc-11-xKiWfi/gcc-11-11.3.0/debian/tmp-nvptx/usr,amdgcn-amdhsa=/build/gcc-11-xKiWfi/gcc-11-11.3.0/debian/tmp-gcn/usr --without-cuda-driver --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu --with-build-config=bootstrap-lto-lean --enable-link-serialization=2
+Thread model: posix
+Supported LTO compression algorithms: zlib zstd
+gcc version 11.3.0 (Ubuntu 11.3.0-1ubuntu1~22.04)
+```
+We need to compile the correct version of compiler ourselves. It can be done by following this guide [Cross-compiler using crosstool-ng for Beaglebone | blog (parzival2.github.io)](https://parzival2.github.io/blog/posts/crosstool-ng-beaglebone/)
