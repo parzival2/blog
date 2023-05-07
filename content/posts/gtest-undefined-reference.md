@@ -1,3 +1,11 @@
+---
+author: "Kalyan"
+title: "Undefined reference to pthread_getspecific"
+date: "2023-05-07"
+description: "Linker error while using gtest"
+tags: ["beaglebone", "c++", "cmake", "cross-compile", "gtest"]
+ShowToc: true
+---
 ## Undefined reference to `pthread_getspecific`
 In the last two [post1](https://parzival2.github.io/blog/posts/beaglebone-cross-compile/) [post2](https://parzival2.github.io/blog/posts/crosstool-ng-beaglebone/) I tried to setup a working **cross-compilation** environment for **Beaglebone**. While I was trying out a test program, I noticed that I was not able to compile a program if I link it with `gtest`
 I was getting a linking error which was not able to find references to `pthread_getspecific` and `pthread_setspecific`. 
