@@ -98,10 +98,45 @@ Then try compiling **libgpiod** again.
 The above command will take sometime. After it is done, execute 
 ```bash
 make
+sudo make install 
 ```
 
 The `libgpiod` comes with a bunch of useful command line tools for driving and testing GPIOs.
+```bash
+debian@BeagleBone:~/libgpiod$ gpiodetect
+```
+If you get an error like this
+```bash
+gpiodetect: error while loading shared libraries: libgpiod.so.3: cannot open shared object file: No such file or directory
+```
+Then the executable is not able to find the library. **libgpiod** gives a hint when we executed `sudo make install`
+```bash
+----------------------------------------------------------------------
+Libraries have been installed in:
+   /usr/local/lib
 
+If you ever happen to want to link against installed libraries
+in a given directory, LIBDIR, you must either use libtool, and
+specify the full pathname of the library, or use the '-LLIBDIR'
+flag during linking and do at least one of the following:
+   - add LIBDIR to the 'LD_LIBRARY_PATH' environment variable
+     during execution
+   - add LIBDIR to the 'LD_RUN_PATH' environment variable
+     during linking
+   - use the '-Wl,-rpath -Wl,LIBDIR' linker flag
+   - have your system administrator add LIBDIR to '/etc/ld.so.conf'
+
+See any operating system documentation about shared libraries for
+more information, such as the ld(1) and ld.so(8) manual pages.
+----------------------------------------------------------------------
+```
+All we have to do is add the `lib` path to our library path.
+```bash
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
+```
+
+go {{< notice note >}} The above command only works for the current terminal. If you want the changes to persist, add it to ~/.bashrc.
+{{< /notice >}}
 All the commands take offset along with the gpiochip number that, that GPIO refers to.
 
 E.g. If you want to drive P9-12 pin on the `Beaglebone-Black` then you would set the offset to 28 and the gpiochip as `gpiochip1`
