@@ -16,6 +16,7 @@ I came to know that we can build a compiler using a tool called `crosstool-ng`. 
 The `crosstool-ng` has to be built as an application before it can be used to build the compiler. When built, it will produce an executable `ct-ng` that can be used to build the final compiler.
 
 ```bash
+sudo apt install libtool-bin gperf bison flex texinfo help2man
 git clone https://github.com/crosstool-ng/crosstool-ng
 cd crosstool-ng
 ./bootstrap
