@@ -20,7 +20,7 @@ target_link_libraries(${project_name} PUBLIC fmt::fmt GTest::gtest GTest::gtest_
 ### Compiling *gtest* with proper flags
 When you provide `-DBUILD_SHARED_LIBS=ON` option while running CMake, it specifies that you want to build the project as a shared library. This means that the code will be compiled into a shared object file (.so) that can be dynamically linked by other programs at runtime.
 So the above problem can also be solved by providing the `-DBUILD_SHARED_LIBS` while doing *cmake*
-```cmake
+```bash
 cd build
 cmake -DBUILD_SHARED_LIBS=ON ..
 make 
