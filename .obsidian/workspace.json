@@ -1,0 +1,165 @@
+{
+  "main": {
+    "id": "5ca5a459d0d1b047",
+    "type": "split",
+    "children": [
+      {
+        "id": "c22863fb4d6a3e88",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "b12f9019ad95e781",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "content/posts/beaglebone-cross-compile.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "3b65a9a1686e5179",
+    "type": "split",
+    "children": [
+      {
+        "id": "da98ba27d7d592d9",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "7bccf287a71248c2",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "90002e7647bcccae",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "14860f1bdf35bcfd",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "b12787b478cc327a",
+    "type": "split",
+    "children": [
+      {
+        "id": "612d93baaa1c8762",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "5223c4e804d72fb8",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "content/posts/beaglebone-cross-compile.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "d59354bfbf6c7edb",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "content/posts/beaglebone-cross-compile.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "10beef3a1617d871",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "2ece71c48c506841",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "content/posts/beaglebone-cross-compile.md"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false
+    }
+  },
+  "active": "b12f9019ad95e781",
+  "lastOpenFiles": [
+    "public/assets/js/search.fb4e87b063089a7d6141b0d38c367971c8137bc37b8731be5a422ff95f9bc61f.js",
+    "public/assets/js/highlight.acb54fd32bbc1982428b8850317e45d076b95012730a5936667e6bc21777692a.js",
+    "public/assets/css/stylesheet.bf5f9f73cf17311d52cedbcda82c922e91b2f566d88a85ad9f5b5a08b586bd5f.css",
+    "public/tags/crosstool-ng/index.xml",
+    "public/tags/crosstool-ng/page/1/index.html",
+    "public/tags/crosstool-ng/index.html",
+    "public/posts/crosstool-ng-beaglebone/index.html",
+    "themes/hugo-notice/theme.yaml",
+    "themes/hugo-notice/screenshot.png",
+    "themes/hugo-notice/layouts/shortcodes/notice.html",
+    "themes/hugo-notice/layouts/shortcodes/notice-feather-icons.html",
+    "themes/hugo-notice/layouts/shortcodes",
+    "themes/hugo-notice/README.md"
+  ]
+}

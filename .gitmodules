@@ -4,3 +4,6 @@
 [submodule "public"]
 	path = public
 	url = ../manabu
+[submodule "themes/hugo-notice"]
+	path = themes/hugo-notice
+	url = https://github.com/martignoni/hugo-notice.git

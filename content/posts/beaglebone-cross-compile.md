@@ -28,7 +28,23 @@ git clone https://git.kernel.org/pub/scm/libs/libgpiod/libgpiod.git/
 You will checkout the master branch. Feel free to checkout a release if you are more comfortable like that using
 
 ```bash
-git checkout remotes/origin/v1.6.x
+debian@BeagleBone:~/libgpiod$ git branch -a
+  master
+* v2.0.x
+  remotes/origin/HEAD -> origin/master
+  remotes/origin/master
+  remotes/origin/v0.1.x
+  remotes/origin/v0.2.x
+  remotes/origin/v0.3.x
+  remotes/origin/v1.0.x
+  remotes/origin/v1.1.x
+  remotes/origin/v1.2.x
+  remotes/origin/v1.3.x
+  remotes/origin/v1.4.x
+  remotes/origin/v1.5.x
+  remotes/origin/v1.6.x
+  remotes/origin/v2.0.x
+debian@BeagleBone:~/libgpiod$ git checkout remotes/origin/v2.0.x
 ```
 
 Configure and compile it using the following commands
@@ -39,7 +55,50 @@ make
 sudo make install
 ```
 
+go {{< notice note >}} If you get an error like this
+```bash
+debian@BeagleBone:~/libgpiod$ ./autogen.sh --enable-tools=yes  
+--enable-bindings-cxx=yes --prefix=/usr/local
+./autogen.sh: 12: autoreconf: not found
+```
+{{< /notice >}}
+
+You need to install `autoconf`.
+
+```bash
+debian@BeagleBone:~/libgpiod$ sudo apt install autoconf
+```
+If debian complains that it was not able to find it
+```bash
+[sudo] password for debian:
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+E: Unable to locate package autoconf
+```
+If debian is not able to find the package, then update your packages using 
+```bash
+sudo apt update
+```
+and try again.
+These are all the packages that I installed to build `libgpiod`. Note that it is a fresh installation of `debian` on `beaglebone`
+```bash
+sudo apt install pkg-config
+sudo apt install autoconf
+sudo apt install autoconf-archive
+sudo apt install build-essential
+# Or a single command
+sudo apt install pkg-config autoconf autoconf-archieve build-essential
+```
 If you don't want to use C++, then remove the `--enable-bindings-cxx=yes` in the above command lines.
+Then try compiling **libgpiod** again.
+```bash
+./autogen.sh --enable-tools=yes --enable-bindings-cxx=yes --prefix=/usr/local
+```
+The above command will take sometime. After it is done, execute 
+```bash
+make
+```
 
 The `libgpiod` comes with a bunch of useful command line tools for driving and testing GPIOs.
 
