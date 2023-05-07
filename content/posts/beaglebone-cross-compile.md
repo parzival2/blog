@@ -135,7 +135,8 @@ All we have to do is add the `lib` path to our library path.
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
 ```
 
-go {{< notice note >}} The above command only works for the current terminal. If you want the changes to persist, add it to ~/.bashrc.
+{{< notice note >}} 
+The above command only works for the current terminal. If you want the changes to persist, add it to `~/.bashrc`.
 {{< /notice >}}
 All the commands take offset along with the gpiochip number that, that GPIO refers to.
 
