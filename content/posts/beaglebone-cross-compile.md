@@ -199,6 +199,13 @@ If you see an error like this
 ```
 {{< /notice >}}
 
+{{< notice tip >}}
+Can also use rsync. I copied entire **Beaglebones** file system
+```bash
+ rsync --info=progress2  -vaHAX --exclude={"/dev/*","/proc/*","/sys/*","/tmp/*","/run/*","/mnt/*","/media/*","/lost+found"} debian@192.168.0.202:/ /home/kalyan/Beaglebone-Sysroot-rsync/
+```
+{{< /notice >}}
+
 ---
 ### GLIBC version Mismatch
 What actually happened is version mismatch with *GLIBC*. This error can occur when you try to run a cross-compiled executable on a target system that has a different version of glibc than the one used for cross-compiling.
