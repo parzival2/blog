@@ -8,14 +8,14 @@ ShowToc: true
 
 ---
 
-## Sharing internet connection with Beaglebone
+# Sharing internet connection with Beaglebone
 
 The beaglebone can be connected over serial and the fun part is that the usb post emulates the lan connection. So we don't need to have another lan connection to `ssh` into the board.
 
 The present versions the debian seems to recognize the SD card and boot from the SD Card directly. The instructions seem to suggest that we should hold the `USERBUTTON` while providing power in-order to boot from SD Card.
 
 Connect the Beaglebone with the USB Micro and wait for sometime to let the Debian image to boot. 
-
+## Linux
 ### Host
 
 In order to check the device you can enter
@@ -51,12 +51,17 @@ sudo iptables --table nat --append POSTROUTING --out-interface wlo1 -j MASQUERAD
 sudo iptables --append FORWARD --in-interface enx402e71cff462 -j ACCEPT
 ```
 
+### Windows
+The network that is connected to Internet needs to enable sharing. For example, I am connected to Internet via **Ethernet** connection. So I have to change the **Ethernet** to enable *Sharing* and provide the Ethernet connection of *Beaglebone* in **Home networking connection** as shown below.
+So In my case
+![Ethernet connections on my PC](../../images/Beaglebone_Internet_USB.png)
+![Ethernet properties](../../images/Pasted%20image%2020230516214753.png)
 ### Beaglebone
 
 On the beaglebone side, enter these commands.
 
 ```bash
-sudo route add default gw 192.168.7.1
+sudo route add default gw 192.168.7.1 dev usb0
 echo "nameserver 8.8.8.8" >> /etc/resolv.conf
 ```
 
