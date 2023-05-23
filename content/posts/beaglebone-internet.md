@@ -54,8 +54,8 @@ sudo iptables --append FORWARD --in-interface enx402e71cff462 -j ACCEPT
 ### Windows
 The network that is connected to Internet needs to enable sharing. For example, I am connected to Internet via **Ethernet** connection. So I have to change the **Ethernet** to enable *Sharing* and provide the Ethernet connection of *Beaglebone* in **Home networking connection** as shown below.
 So In my case
-![Ethernet connections on my PC](docs/assets/Beaglebone_Internet_USB.png)
-![Ethernet properties](Pasted%20image%2020230516214753.png)
+![Ethernet connections on my PC](/docs/assets/Beaglebone_Internet_USB.png)
+![Ethernet properties](/docs/assets/Pasted%20image%2020230516214753.png)
 ### Beaglebone
 
 On the beaglebone side, enter these commands.
