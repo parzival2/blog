@@ -3,7 +3,7 @@ author: "Kalyan"
 title: "Understanding iio devices in Linux"
 date: "2023-05-23"
 description: "Understanding iio devices in Linux"
-tags: ["beaglebone", "c++", "cross-compile", "linux", "drivers", "device-drivers"]
+tags: ["beaglebone", "c++", "cross-compile", "linux", "drivers", "device-drivers", "iio", "mpu9250"]
 ShowToc: true
 math: true
 ---
