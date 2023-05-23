@@ -206,6 +206,49 @@ Can also use rsync. I copied entire **Beaglebones** file system
 ```
 {{< /notice >}}
 
+It seems that there is an issue with certain symlinks, specifically the symlinks `libpthread.so` and `librt.so`. These symlinks currently use absolute paths, which can cause problems. To address this, it is necessary to delete these symlinks and recreate them using relative paths.
+
+One possible solution is to create a clean sysroot by cloning it, which can help resolve this issue. By properly specifying the rootfs in CMake, it is expected that CMake would handle these absolute links. However, it appears that CMake is unable to utilize these symlinks effectively.
+
+I wanted to express my sincere gratitude for providing the Python script that effectively solves the issue I was facing with absolute symlinks in the root filesystem when cross-compiling. The script you shared, which can be found [here](https://forum.beagleboard.org/t/cloning-the-root-filesystem-for-cross-compiling/29828/2), has proven to be incredibly helpful in resolving this problem.
+
+This Python script takes a sysroot directory as input and transforms all the absolute symlinks into relative ones, making the sysroot usable within another system. It accomplishes this by recursively traversing the directory structure and identifying symlinks that have absolute paths. It then replaces those absolute paths with relative ones based on the provided sysroot directory.
+
+This ensures that the sysroot can be utilized seamlessly for cross-compiling purposes.
+
+```python
+import sys
+import os
+
+# Take a sysroot directory and turn all the abolute symlinks and turn them into
+# relative ones such that the sysroot is usable within another system.
+
+if len(sys.argv) != 2:
+    print("Usage is " + sys.argv[0] + "<directory>")
+    sys.exit(1)
+
+topdir = sys.argv[1]
+topdir = os.path.abspath(topdir)
+
+def handlelink(filep, subdir):
+    link = os.readlink(filep)
+    if link[0] != "/":
+        return
+    if link.startswith(topdir):
+        return
+    #print("Replacing %s with %s for %s" % (link, topdir+link, filep))
+    print("Replacing %s with %s for %s" % (link, os.path.relpath(topdir+link, subdir), filep))
+    os.unlink(filep)
+    os.symlink(os.path.relpath(topdir+link, subdir), filep)
+
+for subdir, dirs, files in os.walk(topdir):
+    for f in files:
+        filep = os.path.join(subdir, f)
+        if os.path.islink(filep):
+            #print("Considering %s" % filep)
+            handlelink(filep, subdir)
+```
+
 ---
 ### GLIBC version Mismatch
 What actually happened is version mismatch with *GLIBC*. This error can occur when you try to run a cross-compiled executable on a target system that has a different version of glibc than the one used for cross-compiling.
