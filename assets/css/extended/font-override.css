@@ -4,12 +4,12 @@
     font-family: 'Fira Code';
     font-style: normal;
     font-weight: 400;
-    src: url('/blot/fonts/fira-code-v21-latin-regular.eot'); /* IE9 Compat Modes */
-    src: url('/blot/fonts/fira-code-v21-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-         url('/blot/fonts/fira-code-v21-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
-         url('/blot/fonts/fira-code-v21-latin-regular.woff') format('woff'), /* Modern Browsers */
-         url('/blot/fonts/fira-code-v21-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
-         url('/blot/fonts/fira-code-v21-latin-regular.svg#FiraCode') format('svg'); /* Legacy iOS */
+    src: url('/blog/fonts/fira-code-v21-latin-regular.eot'); /* IE9 Compat Modes */
+    src: url('/blog/fonts/fira-code-v21-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('/blog/fonts/fira-code-v21-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+         url('/blog/fonts/fira-code-v21-latin-regular.woff') format('woff'), /* Modern Browsers */
+         url('/blog/fonts/fira-code-v21-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+         url('/blog/fonts/fira-code-v21-latin-regular.svg#FiraCode') format('svg'); /* Legacy iOS */
 }
 
 /* source-code-pro-regular - latin */
@@ -32,5 +32,5 @@ body {
 }
 
 code {
-    font-family: 'Source Code Pro';
+    font-family: 'Fira Code';
 }
