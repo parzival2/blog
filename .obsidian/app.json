@@ -4,5 +4,6 @@
   "newFileLocation": "root",
   "newFileFolderPath": "",
   "alwaysUpdateLinks": false,
-  "attachmentFolderPath": "images"
+  "attachmentFolderPath": "images",
+  "spellcheck": false
 }

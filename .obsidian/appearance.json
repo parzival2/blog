@@ -1,4 +1,6 @@
 {
   "accentColor": "",
-  "theme": "moonstone"
+  "theme": "moonstone",
+  "textFontFamily": "Source Code Pro",
+  "baseFontSize": 14
 }
