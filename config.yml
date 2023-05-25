@@ -9,6 +9,7 @@ buildFuture: false
 buildExpired: false
 
 googleAnalytics: UA-123-45
+canonifyurls: true
 
 minify:
     disableXML: true

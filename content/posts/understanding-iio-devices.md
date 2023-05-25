@@ -7,7 +7,7 @@ tags: ["beaglebone", "c++", "cross-compile", "linux", "drivers", "device-drivers
 ShowToc: true
 math: true
 ---
-# Understaning iio devices in Linux
+# Understanding iio devices in Linux
 The Industrial I/O core offers a unified framework for writing drivers for many different types of Embedded sensors. a standard interface to user space applications manipulating sensors.
 ## IIO device sysfs interface
 Attributes are sysfs files used to expose chip info and also allowing applications to set various configuration parameters. For device with index X, attributes can be found under `/sys/bus/iio/iio:deviceX/` directory
